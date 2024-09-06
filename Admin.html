@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <meta name="referrer" content="strict-origin" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Admin Account</title>
+  </head>
+  <style>
+    #title {
+      text-align: center;
+    }
+    #icon {
+      padding-left: 30px;
+    }
+    #nono {
+      font-size: 20px;
+    }
+    #logggg {
+      padding-top: 10px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <legend id="title">Manager Staff</legend>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+          <i
+            class="fa fa-user-circle"
+            style="font-size: 36px"
+            id="icon"
+            onclick="logout()"
+            ><p id="nono"></p>
+          </i>
+        </div>
+
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="logggg"></div>
+      </div>
+      <!-- nhap thong tin -->
+      <div class="row">
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+          <form>
+            <div class="form-group">
+              <label for="">ID</label>
+              <input
+                type="number"
+                class="form-control"
+                id="id_ID"
+                placeholder="Input ID"
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="id_Email"
+                placeholder="Input Email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Enter Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="id_Username"
+                placeholder="Input Username"
+              />
+            </div>
+            <div class="form-group">
+              <label for="">FullName</label>
+              <input
+                type="text"
+                class="form-control"
+                id="id_fullName"
+                placeholder="Input FullName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Select a Department</label>
+              <select class="form-control" id="id_department">
+                <option>----Select Department----</option>
+                <!-- <option>Scrum</option>
+                <option>Sale</option>
+                <option>Manager</option>
+                <option>President</option> -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="">Select a Position</label>
+              <select class="form-control" id="id_position">
+                <option>----Select Position----</option>
+                <!-- <option>Scrum</option>
+                <option>DEV</option>
+                <option>Managger</option>
+                <option>President</option> -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="">Create Date</label>
+              <input
+                type="date"
+                class="form-control"
+                id="id_date"
+                placeholder="Input ID"
+              />
+            </div>
+            <input
+              type="button"
+              class="btn btn-success"
+              value="Save"
+              id="save_btn"
+            />
+            <input
+              type="button"
+              class="btn btn-success"
+              id="update_btn"
+              value="Update"
+            />
+            <input
+              type="button"
+              class="btn btn-success"
+              id="reset_btn"
+              value="Reset"
+            />
+          </form>
+        </div>
+      </div>
+      <!-- search  -->
+      <br />
+      <!-- <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="Input-search"
+              placeholder="Search by fullname or department or Email"
+            />
+            <span class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-default"
+                id="go"
+                onclick="handlesearch()"
+              >
+                Go!
+              </button>
+            </span>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- display result  -->
+      <br />
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>
+                  ID
+                  <i class="fa fa-fw fa-sort" onclick="handleSort('iD')"></i>
+                </th>
+                <th>
+                  Email<i
+                    class="fa fa-fw fa-sort"
+                    onclick="handleSort('email')"
+                  ></i>
+                </th>
+                <th>
+                  Username<i
+                    class="fa fa-fw fa-sort"
+                    onclick="handleSort('username')"
+                  ></i>
+                </th>
+                <th>FullName<i class="fa fa-fw fa-sort"></i></th>
+                <th>Department<i class="fa fa-fw fa-sort"></i></th>
+                <th>Position<i class="fa fa-fw fa-sort"></i></th>
+                <th>Create Date<i class="fa fa-fw fa-sort"></i></th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="ResultTable">
+              <!-- <tr>
+                <td>1</td>
+                <td>nguyeminhquy141003@gmail.com</td>
+                <td>daonguye</td>
+                <td>minhquy</td>
+                <td>Sale</td>
+                <td>Managger</td>
+                <td>14-12-2002</td>
+                <td>
+                  <button type="button" class="btn btn-warning">Edit</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nav aria-label="...">
+            <ul class="pagination" id="pagination_id">
+              <!-- <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#"
+                  >2 <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+               -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./Admin2.js"></script>
+  <script src="./home.js"></script>
+</html>

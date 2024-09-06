@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <form action="" method="POST" role="form">
+            <legend>Register System</legend>
+
+            <div class="form-group">
+              <label for="">FullName</label>
+              <input
+                type="text"
+                class="form-control"
+                id="FullNameID"
+                placeholder="Input FullName"
+              />
+
+              <label for="">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="EmailID"
+                placeholder="Input Email"
+              />
+              <label for="">Password</label>
+              <input
+                type="text"
+                class="form-control"
+                id="PasswordID"
+                placeholder="Input Password"
+              />
+              <label for="">Confirm password</label>
+              <input
+                type="text"
+                class="form-control"
+                id="CPasswordID"
+                placeholder="Confirm password"
+              />
+              <label for="">BirthDay</label>
+              <input
+                type="date"
+                class="form-control"
+                id="BirthDayID"
+                placeholder="Input BirthDay"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onclick="createNewUser()"
+            >
+              Submit
+            </button>
+
+            <button type="button" class="btn btn-default" onclick="resetForm()">
+              Reset
+            </button>
+            <button type="button" class="btn btn-warning" onclick="ReLogin()">
+              ReLogin
+            </button>
+            <br />
+            <br />
+
+            <p>*ReLogin if you have account</p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./home.js"></script>
+  </body>
+</html>
